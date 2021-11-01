@@ -1,6 +1,9 @@
 package br.com.zupacademy.grupolaranja.recargacelular.negocio;
 
 
+import br.com.zupacademy.grupolaranja.recargacelular.negocio.client.apioperadora.ApiOperadoraInterface;
+import br.com.zupacademy.grupolaranja.recargacelular.negocio.client.apioperadora.dto.RecarregarRequest;
+import feign.FeignException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,14 +19,24 @@ import javax.validation.Valid;
 public class RecargaCelularController {
     
     @Autowired
-    public RecargaCelularRepository recargaCelularRepository;
+    private RecargaCelularRepository recargaCelularRepository;
+    
+    @Autowired
+    private ApiOperadoraInterface operadoraInterface;
     
     @PostMapping
     @Transactional
     public ResponseEntity<?> recarregaCelular(@RequestBody @Valid RecargaCelularRequest request) {
         RecargaCelular recargaCelular = request.toModel();
         recargaCelularRepository.save(recargaCelular);
+        RecargaCelularResponse celularResponse = new RecargaCelularResponse(recargaCelular);
         
-        return ResponseEntity.ok().body(new RecargaCelularResponse(recargaCelular));
+        try {
+            operadoraInterface.recarregarCelular(new RecarregarRequest(celularResponse));
+        } catch (FeignException exception) {
+            return ResponseEntity.unprocessableEntity().body("Não foi possível processar essa operação.");
+        }
+        
+        return ResponseEntity.ok().body(celularResponse);
     }
 }

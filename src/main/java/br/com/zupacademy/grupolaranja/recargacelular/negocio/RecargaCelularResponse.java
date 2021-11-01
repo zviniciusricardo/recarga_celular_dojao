@@ -1,33 +1,28 @@
 package br.com.zupacademy.grupolaranja.recargacelular.negocio;
 
+import java.math.BigDecimal;
+
 public class RecargaCelularResponse {
     
     public String numeroCelular;
-    public String operadora;
-    public String saldo;
-    public String criadoEm;
-    
+    public Enum<Operadora> operadora;
+    public BigDecimal valor;
     
     public RecargaCelularResponse(RecargaCelular recargaCelular) {
         this.numeroCelular = recargaCelular.getNumeroCelular();
-        this.operadora = recargaCelular.getOperadoraEnum().toString();
-        this.saldo = recargaCelular.getValorRecarga().toString();
-        this.criadoEm = recargaCelular.getCriadoEm().toString();
+        this.operadora = recargaCelular.getOperadoraEnum();
+        this.valor = recargaCelular.getValorRecarga();
     }
     
     public String getNumeroCelular() {
         return numeroCelular;
     }
     
-    public String getOperadora() {
+    public Enum<Operadora> getOperadora() {
         return operadora;
     }
     
-    public String getSaldo() {
-        return saldo;
-    }
-    
-    public String getCriadoEm() {
-        return criadoEm;
+    public BigDecimal getValor() {
+        return valor;
     }
 }
