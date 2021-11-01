@@ -2,7 +2,7 @@
 Repositório destinado ao microsserviço recarga de celular do projeto conta digital
 
 RECARGA DE CELULAR
-- [ ] Criar projeto para aplicação
+- [x] Criar projeto para aplicação
 - [ ] Criar configuração para o swagger
 - [ ] Comunicação entre Recarga de celular e orquestrador
 - [ ] Criar endpoint para receber solicitação de recarga de celular
