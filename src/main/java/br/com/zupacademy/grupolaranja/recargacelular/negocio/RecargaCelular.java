@@ -1,4 +1,4 @@
-package br.com.zupacademy.grupolaranja.recargacelular;
+package br.com.zupacademy.grupolaranja.recargacelular.negocio;
 
 
 import javax.persistence.*;
@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 public class RecargaCelular {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
     @Column(nullable = false, unique = true)
@@ -21,6 +21,7 @@ public class RecargaCelular {
     @Column(nullable = false, updatable = false)
     private BigDecimal valorRecarga;
     
+    @Column(nullable = false, updatable = false)
     private LocalDateTime criadoEm;
     
     

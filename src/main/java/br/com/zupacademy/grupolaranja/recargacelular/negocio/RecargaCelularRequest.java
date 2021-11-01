@@ -1,6 +1,4 @@
-package br.com.zupacademy.grupolaranja.recargacelular;
-
-import br.com.zupacademy.grupolaranja.recargacelular.validation.UniqueValue;
+package br.com.zupacademy.grupolaranja.recargacelular.negocio;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -11,7 +9,6 @@ import java.math.BigDecimal;
 public class RecargaCelularRequest {
     
     @NotBlank
-    @UniqueValue(domainClass = RecargaCelular.class, fieldName = "numeroCelular")
     @Pattern(regexp = "^\\([1-9]{2}\\) (?:[2-8]|9[1-9])[0-9]{3}[0-9]{4}$")
     private String numeroCelular;
     

@@ -1,6 +1,4 @@
-package br.com.zupacademy.grupolaranja.recargacelular;
-
-import java.math.BigDecimal;
+package br.com.zupacademy.grupolaranja.recargacelular.negocio;
 
 public class RecargaCelularResponse {
     
