@@ -1,9 +1,10 @@
 package br.com.zupacademy.grupolaranja.recargacelular.negocio;
 
-
 import br.com.zupacademy.grupolaranja.recargacelular.negocio.client.apioperadora.ApiOperadoraInterface;
 import br.com.zupacademy.grupolaranja.recargacelular.negocio.client.apioperadora.dto.RecarregarRequest;
 import feign.FeignException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,6 +25,8 @@ public class RecargaCelularController {
     @Autowired
     private ApiOperadoraInterface operadoraInterface;
     
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    
     @PostMapping
     @Transactional
     public ResponseEntity<?> recarregaCelular(@RequestBody @Valid RecargaCelularRequest request) {
@@ -34,6 +37,8 @@ public class RecargaCelularController {
         try {
             operadoraInterface.recarregarCelular(new RecarregarRequest(celularResponse));
         } catch (FeignException exception) {
+            logger.warn("Erro ao tentar conectar com serviço externo");
+            
             return ResponseEntity.unprocessableEntity().body("Não foi possível processar essa operação.");
         }
         
