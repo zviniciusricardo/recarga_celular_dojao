@@ -38,7 +38,7 @@ public class RecargaCelularController {
             operadoraInterface.recarregarCelular(new RecarregarRequest(celularResponse));
         } catch (FeignException exception) {
             
-            logger.warn("Erro ao tentar conectar com serviço externo");
+            logger.warn("Erro ao tentar conectar com serviço externo "+ exception.getCause()+exception.contentUTF8());
             return ResponseEntity.unprocessableEntity().body("Não foi possível processar essa operação.");
         }
         

@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 public class RecarregarRequest {
 
     private String numeroCelular;
-    private Enum<Operadora> operadora;
+    private Operadora operadora;
     private BigDecimal valorRecarga;
 
     public RecarregarRequest(RecargaCelularResponse celularResponse) {

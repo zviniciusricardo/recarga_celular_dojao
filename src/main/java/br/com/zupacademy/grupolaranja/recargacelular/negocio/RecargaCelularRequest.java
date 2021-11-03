@@ -12,13 +12,13 @@ public class RecargaCelularRequest {
     @Pattern(regexp = "^\\([1-9]{2}\\) (?:[2-8]|9[1-9])[0-9]{3}[0-9]{4}$")
     private String numeroCelular;
     
-    @NotBlank
-    private Enum<Operadora> operadoraEnum;
+    @NotNull
+    private Operadora operadoraEnum;
     
     @NotNull @Positive
     private BigDecimal valorRecarga;
     
-    public RecargaCelularRequest(String numeroCelular, Enum<Operadora> operadoraEnum, BigDecimal valorRecarga) {
+    public RecargaCelularRequest(String numeroCelular, Operadora operadoraEnum, BigDecimal valorRecarga) {
         this.numeroCelular = numeroCelular;
         this.operadoraEnum = operadoraEnum;
         this.valorRecarga = valorRecarga;
@@ -32,7 +32,7 @@ public class RecargaCelularRequest {
         return numeroCelular;
     }
     
-    public Enum<Operadora> getOperadoraEnum() {
+    public Operadora getOperadoraEnum() {
         return operadoraEnum;
     }
     

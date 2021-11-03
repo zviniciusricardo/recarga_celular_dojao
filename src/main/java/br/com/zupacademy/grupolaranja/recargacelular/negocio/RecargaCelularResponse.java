@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 public class RecargaCelularResponse {
     
     public String numeroCelular;
-    public Enum<Operadora> operadora;
+    public Operadora operadora;
     public BigDecimal valor;
     
     public RecargaCelularResponse(RecargaCelular recargaCelular) {
@@ -18,7 +18,7 @@ public class RecargaCelularResponse {
         return numeroCelular;
     }
     
-    public Enum<Operadora> getOperadora() {
+    public Operadora getOperadora() {
         return operadora;
     }
     

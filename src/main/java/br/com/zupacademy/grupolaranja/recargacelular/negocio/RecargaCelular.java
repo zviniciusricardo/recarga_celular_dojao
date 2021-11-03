@@ -12,11 +12,12 @@ public class RecargaCelular {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String numeroCelular;
     
     @Column(nullable = false, updatable = false)
-    private Enum<Operadora> operadoraEnum;
+    @Enumerated
+    private Operadora operadoraEnum;
     
     @Column(nullable = false, updatable = false)
     private BigDecimal valorRecarga;
@@ -44,7 +45,7 @@ public class RecargaCelular {
         return numeroCelular;
     }
     
-    public Enum<Operadora> getOperadoraEnum() {
+    public Operadora getOperadoraEnum() {
         return operadoraEnum;
     }
     
