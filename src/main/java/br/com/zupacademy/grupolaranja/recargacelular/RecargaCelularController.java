@@ -1,11 +1,11 @@
-package br.com.zupacademy.grupolaranja.recargacelular.negocio;
+package br.com.zupacademy.grupolaranja.recargacelular;
 
 import br.com.zupacademy.grupolaranja.recargacelular.kafka.EmailTopicProducer;
 import br.com.zupacademy.grupolaranja.recargacelular.kafka.ExtratoTopicProducer;
 import br.com.zupacademy.grupolaranja.recargacelular.kafka.dto.EmaiDto;
 import br.com.zupacademy.grupolaranja.recargacelular.kafka.dto.ExtratoDto;
-import br.com.zupacademy.grupolaranja.recargacelular.negocio.client.apioperadora.ApiOperadoraInterface;
-import br.com.zupacademy.grupolaranja.recargacelular.negocio.client.apioperadora.dto.RecarregarRequest;
+import br.com.zupacademy.grupolaranja.recargacelular.apioperadora.ApiOperadoraInterface;
+import br.com.zupacademy.grupolaranja.recargacelular.apioperadora.dto.RecarregarRequest;
 import feign.FeignException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

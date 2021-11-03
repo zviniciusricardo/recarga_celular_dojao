@@ -1,7 +1,7 @@
-package br.com.zupacademy.grupolaranja.recargacelular.negocio.client.apioperadora.dto;
+package br.com.zupacademy.grupolaranja.recargacelular.apioperadora.dto;
 
-import br.com.zupacademy.grupolaranja.recargacelular.negocio.Operadora;
-import br.com.zupacademy.grupolaranja.recargacelular.negocio.RecargaCelularResponse;
+import br.com.zupacademy.grupolaranja.recargacelular.Operadora;
+import br.com.zupacademy.grupolaranja.recargacelular.RecargaCelularResponse;
 
 import java.math.BigDecimal;
 
