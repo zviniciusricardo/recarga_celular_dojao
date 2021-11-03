@@ -66,7 +66,11 @@ public class RecargaCelularController {
     }
 
     private void alimentarTopicos(ExtratoDto extrato, EmaiDto email) {
-        extratoTopicProducer.send(extrato.toString());
-        emailTopicProducer.send(email.toString());
+        try {
+            extratoTopicProducer.send(extrato.toString());
+            emailTopicProducer.send(email.toString());
+        }catch (Exception exception){
+            logger.warn("Ocorreu um erro ao enviar mensagens para o kafka "+extrato.toString()+" "+email.toString());
+        }
     }
 }
