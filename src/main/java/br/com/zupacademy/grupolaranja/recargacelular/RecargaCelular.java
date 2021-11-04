@@ -11,7 +11,10 @@ public class RecargaCelular {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
+    @Column(nullable = false)
+    private String idCliente;
+
     @Column(nullable = false)
     private String numeroCelular;
     
@@ -27,6 +30,7 @@ public class RecargaCelular {
     
     
     public RecargaCelular(RecargaCelularRequest request) {
+        this.idCliente = request.getIdCliente();
         this.numeroCelular = request.getNumeroCelular();
         this.operadoraEnum = request.getOperadoraEnum();
         this.valorRecarga = request.getValorRecarga();
@@ -40,7 +44,11 @@ public class RecargaCelular {
     public Long getId() {
         return id;
     }
-    
+
+    public String getIdCliente() {
+        return idCliente;
+    }
+
     public String getNumeroCelular() {
         return numeroCelular;
     }

@@ -22,6 +22,10 @@ public class RecarregarRequest {
         return numeroCelular;
     }
 
+    public Operadora getOperadora() {
+        return operadora;
+    }
+
     public BigDecimal getValorRecarga() {
         return valorRecarga;
     }

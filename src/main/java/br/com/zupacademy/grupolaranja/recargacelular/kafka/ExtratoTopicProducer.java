@@ -21,7 +21,7 @@ public class ExtratoTopicProducer {
     }
 
     public void send(String message){
-        logger.info("Payload enviado: {"+message+"}");
+        logger.info("Payload enviado: "+message);
         kafkaTemplate.send(topicName, message);
     }
 

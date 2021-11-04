@@ -6,6 +6,7 @@ import br.com.zupacademy.grupolaranja.recargacelular.kafka.dto.EmaiDto;
 import br.com.zupacademy.grupolaranja.recargacelular.kafka.dto.ExtratoDto;
 import br.com.zupacademy.grupolaranja.recargacelular.apioperadora.ApiOperadoraInterface;
 import br.com.zupacademy.grupolaranja.recargacelular.apioperadora.dto.RecarregarRequest;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import feign.FeignException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,13 +49,14 @@ public class RecargaCelularController {
             recargaCelularRepository.save(recargaCelular);
             ExtratoDto extratoDto;
             EmaiDto emailDto;
-            extratoDto = new ExtratoDto(celularResponse.getValor(),
-                    "Foi realizado uma recarga no valor de "+celularResponse.getValor()+" para o número "+celularResponse.getNumeroCelular());
+            extratoDto = new ExtratoDto(request.getIdCliente(),celularResponse.getValor(),
+                    "Foi realizado uma recarga no valor de "+request.getValorRecarga()
+                            +" para o número "+request.getNumeroCelular());
             emailDto = new EmaiDto("user@com.br",
-                    "Foi realizado uma recarga no valor de "+celularResponse.getValor()+" para o número "+celularResponse.getNumeroCelular());
+                    "Foi realizado uma recarga no valor de "+request.getValorRecarga()
+                            +" para o número "+request.getNumeroCelular(),request.getIdCliente());
             this.alimentarTopicos(extratoDto, emailDto);
             logger.info("Foi realizado uma recarga no valor de "+celularResponse.getValor()+" para o número "+celularResponse.getNumeroCelular());
-
 
         } catch (FeignException exception) {
 
@@ -67,10 +69,11 @@ public class RecargaCelularController {
 
     private void alimentarTopicos(ExtratoDto extrato, EmaiDto email) {
         try {
-            extratoTopicProducer.send(extrato.toString());
-            emailTopicProducer.send(email.toString());
+            extratoTopicProducer.send(extrato.paraKafka());
+            emailTopicProducer.send(email.paraKafka());
         }catch (Exception exception){
-            logger.warn("Ocorreu um erro ao enviar mensagens para o kafka "+extrato.toString()+" "+email.toString());
+            logger.warn("Ocorreu um erro ao enviar mensagens para o kafka "+
+                    exception.getMessage()+" - "+exception.getCause());
         }
     }
 }

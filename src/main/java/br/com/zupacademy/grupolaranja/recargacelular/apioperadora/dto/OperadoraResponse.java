@@ -21,4 +21,8 @@ public class OperadoraResponse {
     public void setValor(BigDecimal valor) {
         this.valor = valor;
     }
+
+    public String getNumero() {
+        return numero;
+    }
 }

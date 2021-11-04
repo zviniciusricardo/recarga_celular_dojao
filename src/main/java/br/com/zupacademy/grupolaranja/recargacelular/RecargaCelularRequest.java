@@ -7,7 +7,10 @@ import javax.validation.constraints.Positive;
 import java.math.BigDecimal;
 
 public class RecargaCelularRequest {
-    
+
+    @NotBlank
+    private String idCliente;
+
     @NotBlank
     @Pattern(regexp = "^\\([1-9]{2}\\) (?:[2-8]|9[1-9])[0-9]{3}[0-9]{4}$")
     private String numeroCelular;
@@ -18,16 +21,21 @@ public class RecargaCelularRequest {
     @NotNull @Positive
     private BigDecimal valorRecarga;
     
-    public RecargaCelularRequest(String numeroCelular, Operadora operadoraEnum, BigDecimal valorRecarga) {
+    public RecargaCelularRequest(String idCliente, String numeroCelular, Operadora operadoraEnum, BigDecimal valorRecarga) {
         this.numeroCelular = numeroCelular;
         this.operadoraEnum = operadoraEnum;
         this.valorRecarga = valorRecarga;
+        this.idCliente = idCliente;
     }
-    
+
     public RecargaCelular toModel() {
         return new RecargaCelular(this);
     }
-    
+
+    public String getIdCliente() {
+        return idCliente;
+    }
+
     public String getNumeroCelular() {
         return numeroCelular;
     }
