@@ -1,0 +1,13 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "/operadora"
+  },
+  "response": {
+    "status": 200,
+    "body": "",
+    "headers": {
+      "Content-Type": "text/plain"
+    }
+  }
+}
