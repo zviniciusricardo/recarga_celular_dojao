@@ -1,7 +1,7 @@
-package br.com.zupacademy.grupolaranja.recargacelular.negocio.client.apioperadora;
+package br.com.zupacademy.grupolaranja.recargacelular.apioperadora;
 
-import br.com.zupacademy.grupolaranja.recargacelular.negocio.client.apioperadora.dto.OperadoraResponse;
-import br.com.zupacademy.grupolaranja.recargacelular.negocio.client.apioperadora.dto.RecarregarRequest;
+import br.com.zupacademy.grupolaranja.recargacelular.apioperadora.dto.OperadoraResponse;
+import br.com.zupacademy.grupolaranja.recargacelular.apioperadora.dto.RecarregarRequest;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

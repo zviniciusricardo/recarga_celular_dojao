@@ -1,4 +1,4 @@
-package br.com.zupacademy.grupolaranja.recargacelular.negocio;
+package br.com.zupacademy.grupolaranja.recargacelular;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;

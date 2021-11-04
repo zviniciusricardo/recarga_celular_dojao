@@ -1,4 +1,4 @@
-package br.com.zupacademy.grupolaranja.recargacelular.negocio.client.apioperadora.dto;
+package br.com.zupacademy.grupolaranja.recargacelular.apioperadora.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

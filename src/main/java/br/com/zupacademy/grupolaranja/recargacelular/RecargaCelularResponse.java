@@ -1,4 +1,4 @@
-package br.com.zupacademy.grupolaranja.recargacelular.negocio;
+package br.com.zupacademy.grupolaranja.recargacelular;
 
 import java.math.BigDecimal;
 

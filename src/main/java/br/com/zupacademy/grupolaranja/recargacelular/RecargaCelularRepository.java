@@ -1,4 +1,4 @@
-package br.com.zupacademy.grupolaranja.recargacelular.negocio;
+package br.com.zupacademy.grupolaranja.recargacelular;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
