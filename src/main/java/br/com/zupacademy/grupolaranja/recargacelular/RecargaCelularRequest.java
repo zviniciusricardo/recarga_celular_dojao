@@ -12,6 +12,9 @@ public class RecargaCelularRequest {
     private String idCliente;
 
     @NotBlank
+    private String email;
+
+    @NotBlank
     @Pattern(regexp = "^\\([1-9]{2}\\) (?:[2-8]|9[1-9])[0-9]{3}[0-9]{4}$")
     private String numeroCelular;
     
@@ -21,8 +24,13 @@ public class RecargaCelularRequest {
     @NotNull @Positive
     private BigDecimal valorRecarga;
     
-    public RecargaCelularRequest(String idCliente, String numeroCelular, Operadora operadoraEnum, BigDecimal valorRecarga) {
+    public RecargaCelularRequest(String idCliente,
+                                 String numeroCelular,
+                                 String email,
+                                 Operadora operadoraEnum,
+                                 BigDecimal valorRecarga) {
         this.numeroCelular = numeroCelular;
+        this.email = email;
         this.operadoraEnum = operadoraEnum;
         this.valorRecarga = valorRecarga;
         this.idCliente = idCliente;
@@ -34,6 +42,10 @@ public class RecargaCelularRequest {
 
     public String getIdCliente() {
         return idCliente;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     public String getNumeroCelular() {

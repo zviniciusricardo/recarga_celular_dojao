@@ -34,7 +34,7 @@ class RecargaCelularControllerTest {
     @Test
     public void fazerUmaRecargaComSucesso() throws Exception {
         RecargaCelularRequest requestBody = new RecargaCelularRequest("123",
-                "(46) 999990800",Operadora.VIVO,new BigDecimal("100"));
+                "(46) 999990800","user@com.br",Operadora.VIVO,new BigDecimal("100"));
 
         System.out.println(new ObjectMapper().writeValueAsString(requestBody));
         RequestBuilder builder = MockMvcRequestBuilders.post("/recarga-celulares")
