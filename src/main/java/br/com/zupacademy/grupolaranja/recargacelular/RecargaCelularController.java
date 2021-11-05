@@ -52,9 +52,9 @@ public class RecargaCelularController {
             extratoDto = new ExtratoDto(request.getIdCliente(),celularResponse.getValor(),
                     "Foi realizado uma recarga no valor de "+request.getValorRecarga()
                             +" para o número "+request.getNumeroCelular());
-            emailDto = new EmaiDto("user@com.br",
-                    "Foi realizado uma recarga no valor de "+request.getValorRecarga()
-                            +" para o número "+request.getNumeroCelular(),request.getIdCliente());
+            emailDto = new EmaiDto("user@user.com","Uma nova recarga foi Efetuada",
+                    "Uma nova recarga de celular foi efetuada no valor de "+request.getValorRecarga()+
+                    " para o número "+request.getNumeroCelular());
             this.alimentarTopicos(extratoDto, emailDto);
             logger.info("Foi realizado uma recarga no valor de "+celularResponse.getValor()+" para o número "+celularResponse.getNumeroCelular());
 

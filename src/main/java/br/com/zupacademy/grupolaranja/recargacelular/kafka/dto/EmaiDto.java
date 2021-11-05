@@ -7,35 +7,36 @@ import org.slf4j.LoggerFactory;
 
 public class EmaiDto {
 
-    private String idCliente;
     private String destinatario;
-    private String mensagem;
+    private String assunto;
+    private String corpo;
+
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    public EmaiDto(String destinatario, String mensagem, String idCliente) {
+    public EmaiDto(String destinatario, String assunto, String corpo) {
         this.destinatario = destinatario;
-        this.mensagem = mensagem;
-        this.idCliente = idCliente;
+        this.assunto = assunto;
+        this.corpo = corpo;
     }
 
     public String paraKafka() throws JsonProcessingException {
         try {
             return new ObjectMapper().writeValueAsString(this);
         } catch (JsonProcessingException e) {
-            logger.info("Erro ao converter objeto em json "+idCliente+" - "+mensagem+" - "+destinatario);
+            logger.info("Erro ao converter objeto em json "+destinatario+" - "+assunto+" - "+corpo);
             throw e;
         }
-    }
-
-    public String getIdCliente() {
-        return idCliente;
     }
 
     public String getDestinatario() {
         return destinatario;
     }
 
-    public String getMensagem() {
-        return mensagem;
+    public String getAssunto() {
+        return assunto;
+    }
+
+    public String getCorpo() {
+        return corpo;
     }
 }

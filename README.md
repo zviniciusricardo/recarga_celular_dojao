@@ -9,5 +9,5 @@ Repositório destinado ao microsserviço recarga de celular do projeto conta dig
 ## Tópicos do Kafka e payload.
 ###	Tópico para extrato: 	extratoRecarga
 #### Payload para extrato: {"idCliente":"string","valor":BigDecimal,"mensagem":"string"}
-###	Tópico para email:		emailRecarga
-#### Payload para email: {"idCliente":"string","destinatario":"string","mensagem":"string"} 
+###	Tópico para email:		email
+#### Payload para email: {"destinatario":"string","assunto":"string","corpo":"string"} 
